@@ -75,13 +75,9 @@ Get Domain Graph
 curl http://127.0.0.1:5000/graph
 **🌱 Future Improvements**
 Add more URL features (e.g., HTTPS usage, domain age).
-
 Use edge weights in graph analysis for better accuracy.
-
 Deploy to cloud platforms like AWS or Render.
-
 Add unit testing and API authentication.
-
 **👤 Author**
 Jnapika Pilli
 
