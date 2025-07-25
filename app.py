@@ -4,9 +4,13 @@ from dotenv import load_dotenv
 import os
 import hashlib
 import random
+from graph_analysis import train_model, extract_features
 
 app = Flask(__name__)
 load_dotenv()
+
+# Load ML model and vectorizer
+model, vectorizer = train_model()
 
 # MySQL connection
 db = mysql.connector.connect(
@@ -26,8 +30,9 @@ def check_url():
     url = data.get('url')
     if not url:
         return jsonify({"error": "URL required"}), 400
-    # Placeholder phishing check (to be enhanced with ML)
-    is_phishing = len(url) < 10  # Simple rule for MVP
+    # ML-based phishing check
+    features = vectorizer.transform([url])
+    is_phishing = bool(model.predict(features)[0])
     cursor = db.cursor()
     cursor.execute("INSERT INTO urls (url, is_phishing) VALUES (%s, %s)", (url, is_phishing))
     log_id = generate_quantum_id()
