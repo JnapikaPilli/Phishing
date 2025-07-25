@@ -37,6 +37,8 @@ cd Phishing
 python3 -m venv phishing_env
 source phishing_env/bin/activate
 pip install flask scikit-learn networkx mysql-connector-python python-dotenv
+
+
 ##**3. Install & Configure MySQL**##
 Install MySQL:
 sudo apt install mysql-server
@@ -54,6 +56,8 @@ CREATE TABLE access_logs (
     timestamp DATETIME,
     endpoint VARCHAR(100)
 );
+
+
 ##**4. Set Environment Variables**##
 Create a .env file in the project root:
 nano .env
@@ -62,6 +66,8 @@ MYSQL_USER=root
 MYSQL_PASSWORD=your_password
 MYSQL_HOST=localhost
 MYSQL_DATABASE=phishing_detector
+
+
 ##**5. Run the Application**##
 python3 app.py
 🔬 API Usage
@@ -73,16 +79,23 @@ http://127.0.0.1:5000/check
 curl http://127.0.0.1:5000/urls
 Get Domain Graph
 curl http://127.0.0.1:5000/graph
+
+
 ##**🌱 Future Improvements**##
 Add more URL features (e.g., HTTPS usage, domain age).
 Use edge weights in graph analysis for better accuracy.
 Deploy to cloud platforms like AWS or Render.
 Add unit testing and API authentication.
+
+
 ##**👤 Author**##
 Jnapika Pilli
+
 
 ##**📄 License**##
 This project is licensed under the MIT License.
 
+
 ##**📬 Contact**##
 For questions or contributions, feel free to open an issue or submit a pull request.
+
