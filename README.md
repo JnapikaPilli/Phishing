@@ -29,15 +29,15 @@ A cybersecurity project to detect phishing URLs using machine learning, graph an
 
 ## ⚙️ Setup Instructions
 
-**1. Clone the Repository**
+##**1. Clone the Repository**##
 git clone https://github.com/JnapikaPilli/Phishing.git
 cd Phishing
 
-**2. Set Up Virtual Environment**
+##**2. Set Up Virtual Environment**##
 python3 -m venv phishing_env
 source phishing_env/bin/activate
 pip install flask scikit-learn networkx mysql-connector-python python-dotenv
-**3. Install & Configure MySQL**
+##**3. Install & Configure MySQL**##
 Install MySQL:
 sudo apt install mysql-server
 Create Database and Tables:
@@ -54,7 +54,7 @@ CREATE TABLE access_logs (
     timestamp DATETIME,
     endpoint VARCHAR(100)
 );
-**4. Set Environment Variables**
+##**4. Set Environment Variables**##
 Create a .env file in the project root:
 nano .env
 Add the following:
@@ -62,7 +62,7 @@ MYSQL_USER=root
 MYSQL_PASSWORD=your_password
 MYSQL_HOST=localhost
 MYSQL_DATABASE=phishing_detector
-**5. Run the Application**
+##**5. Run the Application**##
 python3 app.py
 🔬 API Usage
 Check a URL
@@ -73,16 +73,16 @@ http://127.0.0.1:5000/check
 curl http://127.0.0.1:5000/urls
 Get Domain Graph
 curl http://127.0.0.1:5000/graph
-**🌱 Future Improvements**
+##**🌱 Future Improvements**##
 Add more URL features (e.g., HTTPS usage, domain age).
 Use edge weights in graph analysis for better accuracy.
 Deploy to cloud platforms like AWS or Render.
 Add unit testing and API authentication.
-**👤 Author**
+##**👤 Author**##
 Jnapika Pilli
 
-**📄 License**
+##**📄 License**##
 This project is licensed under the MIT License.
 
-**📬 Contact**
+##**📬 Contact**##
 For questions or contributions, feel free to open an issue or submit a pull request.
