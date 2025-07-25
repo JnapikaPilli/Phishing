@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import os
 import hashlib
 import random
-from graph_analysis import train_model, extract_features
+from graph_analysis import train_model, extract_features, get_graph_clusters
 
 app = Flask(__name__)
 load_dotenv()
@@ -30,7 +30,6 @@ def check_url():
     url = data.get('url')
     if not url:
         return jsonify({"error": "URL required"}), 400
-    # ML-based phishing check
     features = vectorizer.transform([url])
     is_phishing = bool(model.predict(features)[0])
     cursor = db.cursor()
@@ -51,6 +50,19 @@ def get_urls():
     urls = cursor.fetchall()
     cursor.close()
     return jsonify(urls)
+
+@app.route('/graph', methods=['GET'])
+def get_graph():
+    clusters = get_graph_clusters()
+    log_id = generate_quantum_id()
+    cursor = db.cursor()
+    cursor.execute(
+        "INSERT INTO access_logs (id, ip_address, timestamp, endpoint) VALUES (%s, %s, NOW(), %s)",
+        (log_id, request.remote_addr, '/graph')
+    )
+    db.commit()
+    cursor.close()
+    return jsonify(clusters)
 
 if __name__ == '__main__':
     app.run(debug=True)
