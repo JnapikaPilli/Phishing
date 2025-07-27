@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🛡️ Phishing Detection System
 
 A cybersecurity project to detect phishing URLs using machine learning, graph analysis, and secure logging. Built with **Python**, **Flask**, **MySQL**, **scikit-learn**, and **NetworkX**, this project showcases skills in programming, data structures, algorithms, and RESTful API development.
@@ -144,4 +145,21 @@ This project is licensed under the MIT License.
 ##**📬 Contact**##
 
 For questions or contributions, feel free to open an issue or submit a pull request.
+=======
+# AI-Powered Phishing Detection System with Quantum-Inspired Secure Logging
+
+A multi-tiered cybersecurity application to detect phishing URLs using machine learning (logistic regression), graph-based domain analysis (NetworkX), and secure logging with quantum-inspired random IDs. Built with Python, Flask, MySQL, and scikit-learn, this project showcases programming, data structures, algorithms, and REST API development for scalable systems.
+
+## Features
+- **Phishing Detection**: Uses logistic regression to classify URLs based on character n-gram features.
+- **Graph Analysis**: Maps domain relationships using NetworkX to identify suspicious clusters.
+- **Secure Logging**: Stores API access logs with SHA-256-based quantum-inspired IDs in MySQL.
+- **REST API**: Endpoints `/check` (POST), `/urls` (GET), `/graph` (GET) built with Flask.
+
+## Setup
+1. **Clone Repository**:
+   ```bash
+   git clone https://github.com/JnapikaPilli/Phishing.git
+   cd Phishing
+>>>>>>> b8b0dca (Initial commit: Project structure for AWS phishing detection)
 
